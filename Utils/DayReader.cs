@@ -15,7 +15,7 @@
         {
             this.day = day;
 
-            string path = $"./inputs/{day}.txt";
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Inputs", $"{day}.txt");
 
             if (!File.Exists(path))
             {
