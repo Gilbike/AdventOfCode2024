@@ -2,7 +2,8 @@
 {
     public enum Days
     {
-        Day1
+        Day1,
+        Day2
     }
 
     public class DayReader
