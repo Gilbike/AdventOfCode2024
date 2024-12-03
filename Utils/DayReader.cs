@@ -3,7 +3,8 @@
     public enum Days
     {
         Day1,
-        Day2
+        Day2,
+        Day3
     }
 
     public class DayReader
@@ -29,6 +30,11 @@
         public string[] GetInputLines()
         {
             return lines;
+        }
+
+        public string GetInput()
+        {
+            return string.Join("", lines);
         }
     }
 }
