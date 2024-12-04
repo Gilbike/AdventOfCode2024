@@ -4,7 +4,7 @@ fn main() {
     let lines = get_input(false);
 
     println!("Part 1 Result: {}", part1(&lines));
-    println!("Part 1 Result: {}", part2(&lines));
+    println!("Part 2 Result: {}", part2(&lines));
 }
 
 fn part1(lines: &Vec<Vec<i32>>) -> usize {
