@@ -6,28 +6,23 @@ fn main() {
     println!("Part 1 Result: {}", part1(lines));
 }
 
-fn part1(lines: Vec<Vec<i32>>) -> i32 {
-    lines.iter().map(|line| {
-        let mut comparer = line.clone();
-        comparer.sort();
+fn part1(lines: Vec<Vec<i32>>) -> usize {
+    lines.iter().filter_map(|line| is_line_valid(line)).count()
+}
 
-        let mut comparer_rev = line.clone();
-        comparer_rev.sort();
-        comparer_rev.reverse();
+fn is_line_valid(line: &Vec<i32>) -> Option<()> {
+    let sorted = line.windows(2).all(|numbers| numbers[0] < numbers[1]);
+    let sorted_reverse = line.windows(2).all(|numbers| numbers[0] > numbers[1]);
 
-        if *line != comparer && *line != comparer_rev {
-            return 0;
-        }
+    if !sorted && !sorted_reverse {
+        return None;
+    }
 
-        for i in 0..comparer_rev.len()-1 {
-            let diff = comparer_rev[i] - comparer_rev[i + 1];
-            if diff > 3 || diff < 1 {
-                return 0;
-            }
-        }
+    if !line.windows(2).all(|numbers| (numbers[0] - numbers[1]).abs() >= 1 && (numbers[0] - numbers[1]).abs() <= 3) {
+        return None;
+    }
 
-        1
-    }).sum()
+    Some(())
 }
 
 fn get_input(test: bool) -> Vec<Vec<i32>> {
@@ -50,7 +45,7 @@ mod tests {
     fn part1_works() {
         let lines = get_input(true);
 
-        // let result = part1(&left, &right);
-        // assert_eq!(result, 11);
+        let result = part1(lines);
+        assert_eq!(result, 11);
     }
 }
