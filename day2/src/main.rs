@@ -14,11 +14,11 @@ fn part1(lines: &Vec<Vec<i32>>) -> usize {
 fn part2(lines: &Vec<Vec<i32>>) -> usize {
     lines
         .iter()
-        .filter_map(|line| {
+        .filter(|line| {
             line
                 .iter()
                 .enumerate()
-                .any(|(index, _)| is_line_valid(&[&line[..index], &line[index + 1..]].concat()).is_some()).then_some(())
+                .any(|(index, _)| is_line_valid(&[&line[..index], &line[index + 1..]].concat()).is_some())
         })
         .count()
 }
