@@ -3,11 +3,24 @@ use std::fs;
 fn main() {
     let lines = get_input(false);
 
-    println!("Part 1 Result: {}", part1(lines));
+    println!("Part 1 Result: {}", part1(&lines));
+    println!("Part 1 Result: {}", part2(&lines));
 }
 
-fn part1(lines: Vec<Vec<i32>>) -> usize {
+fn part1(lines: &Vec<Vec<i32>>) -> usize {
     lines.iter().filter_map(|line| is_line_valid(line)).count()
+}
+
+fn part2(lines: &Vec<Vec<i32>>) -> usize {
+    lines
+        .iter()
+        .filter_map(|line| {
+            line
+                .iter()
+                .enumerate()
+                .any(|(index, _)| is_line_valid(&[&line[..index], &line[index + 1..]].concat()).is_some()).then_some(())
+        })
+        .count()
 }
 
 fn is_line_valid(line: &Vec<i32>) -> Option<()> {
@@ -45,7 +58,15 @@ mod tests {
     fn part1_works() {
         let lines = get_input(true);
 
-        let result = part1(lines);
-        assert_eq!(result, 11);
+        let result = part1(&lines);
+        assert_eq!(result, 2);
+    }
+
+    #[test]
+    fn part2_works() {
+        let lines = get_input(true);
+
+        let result = part2(&lines);
+        assert_eq!(result, 4);
     }
 }
