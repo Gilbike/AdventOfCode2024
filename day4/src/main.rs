@@ -16,7 +16,8 @@ fn main() {
     let input = get_input();
 
     println!("Test result: {}", part1(&test_input));
-    println!("Part 1 result: {}", part1(&input))
+    println!("Part 1 result: {}", part1(&input));
+    println!("Part 2 result: {}", part2(&input));
 }
 
 fn part1(matrix: &Vec<Vec<char>>) -> usize {
@@ -37,6 +38,34 @@ fn part1(matrix: &Vec<Vec<char>>) -> usize {
                     }
                 })
                 .sum::<usize>()
+        })
+        .sum()
+}
+
+fn part2(matrix: &Vec<Vec<char>>) -> usize {
+    (1..matrix.len() - 1)
+        .map(|row| {
+            (1..matrix[0].len() - 1)
+                .filter_map(|column| {
+                    if matrix[row][column] == 'A' {
+                        if ((matrix[row - 1][column - 1] == 'M'
+                            && matrix[row + 1][column + 1] == 'S')
+                            || (matrix[row - 1][column - 1] == 'S'
+                                && matrix[row + 1][column + 1] == 'M'))
+                            && ((matrix[row - 1][column + 1] == 'M'
+                                && matrix[row + 1][column - 1] == 'S')
+                                || (matrix[row - 1][column + 1] == 'S'
+                                    && matrix[row + 1][column - 1] == 'M'))
+                        {
+                            return Some(());
+                        }
+
+                        None
+                    } else {
+                        None
+                    }
+                })
+                .count()
         })
         .sum()
 }
@@ -118,5 +147,12 @@ mod tests {
         let test_input = get_test_input();
 
         assert_eq!(part1(&test_input), 18);
+    }
+
+    #[test]
+    fn part2_works() {
+        let test_input = get_test_input();
+
+        assert_eq!(part2(&test_input), 9);
     }
 }
