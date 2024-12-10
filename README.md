@@ -17,7 +17,7 @@ Each day’s challenge has its own branch.
 | [Day 3](https://github.com/Gilbike/AdventOfCode2024/tree/day3) | ✅     | ✅     | [**C#**](https://github.com/Gilbike/AdventOfCode2024/tree/csharp/Day3) |
 | [Day 4](https://github.com/Gilbike/AdventOfCode2024/tree/day4) | ✅     | ✅     |                                                                        |
 | [Day 5](https://github.com/Gilbike/AdventOfCode2024/tree/day5) | ✅     | ✅     |                                                                        |
-| [Day 6](https://github.com/Gilbike/AdventOfCode2024/tree/day6) |        |        |                                                                        |
+| [Day 6](https://github.com/Gilbike/AdventOfCode2024/tree/day6) | ✅     |        |                                                                        |
 | Day 7                                                          |        |        |                                                                        |
 | Day 8                                                          |        |        |                                                                        |
 | Day 9                                                          |        |        |                                                                        |
