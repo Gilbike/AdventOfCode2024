@@ -20,7 +20,7 @@ Each day’s challenge has its own branch.
 | [Day 6](https://github.com/Gilbike/AdventOfCode2024/tree/day6) | ✅     | ✅     |                                                                        |
 | [Day 7](https://github.com/Gilbike/AdventOfCode2024/tree/day7) | ✅     | ✅     |                                                                        |
 | [Day 8](https://github.com/Gilbike/AdventOfCode2024/tree/day8) | ✅     | ✅     |                                                                        |
-| Day 9                                                          |        |        |                                                                        |
+| [Day 9](https://github.com/Gilbike/AdventOfCode2024/tree/day9) | ✅     |        |                                                                        |
 | Day 10                                                         |        |        |                                                                        |
 | Day 11                                                         |        |        |                                                                        |
 | Day 12                                                         |        |        |                                                                        |
